@@ -1,0 +1,46 @@
+$navbar-default-bg: #fac21b;
+
+@import "bootstrap-sprockets";
+@import "bootstrap"; 
+
+.center{
+	text-align:center;
+}
+
+.jumbotron{
+	background-image: asset-url('recipes.jpg');
+	background-size: cover;
+	height: 300px;
+}
+.site-footer{
+	background-color: #fac21b;
+}
+
+#logo{
+	float: left;
+	font-size: 1.7em;
+	color: #ffff;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	font-weight: bold;
+}
+#logo:hover{
+	color: #ffff;
+	text-decoration: none;
+}
+
+.jumbotron h1,h2{
+	color: #fff;
+	text-align: center;
+	margin-bottom: 30px;
+	letter-spacing: -1px;
+
+}
+.btn-xlarge{
+	background-color: #fac21b;
+}
+.btn-xlarge:hover{
+	background-color: black;
+	color: #fff;
+	text-decoration: none;
+}
