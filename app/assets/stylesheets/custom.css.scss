@@ -29,7 +29,14 @@ $navbar-default-bg: #fac21b;
 	text-decoration: none;
 }
 
-.jumbotron h1,h2{
+.jumbotron h1{
+	color: #fff;
+	text-align: center;
+	margin-bottom: 30px;
+	letter-spacing: -1px;
+
+}
+.jumbotron h2{
 	color: #fff;
 	text-align: center;
 	margin-bottom: 30px;
