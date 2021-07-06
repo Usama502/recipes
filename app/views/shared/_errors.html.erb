@@ -1,0 +1,15 @@
+<% if obj.errors.any?%>
+	<div class="panel panel-danger">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<%= pluralize(obj.errors.count, "error")%>
+				prohibited saved <%= obj.class %> from 
+			</div>
+			<div class="panel-body">
+				<%= obj.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</div>
+		</div>
+	</div>
+<% end %>
