@@ -1,0 +1,15 @@
+<%= render 'shared/page-title', title: "Show all Recipes" %>
+
+
+<% @recipes.each do |recipe| %>
+<div class="row">
+	<div class="well  col-md-8">
+		<h4><%= link_to recipe.name , recipe_path(recipe) %></h4>
+		<p><%= recipe.description %></p>
+		<small>created by <b><%=  recipe.chef.name %></b> <%= time_ago_in_words(recipe.created_at) %> ago</small>
+	</div>
+	<br><br>
+</div>
+<% end %>
+
+<hr/>
