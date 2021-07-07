@@ -1,0 +1,28 @@
+<%= render 'shared/page-title', title: "Log in"%>
+
+<div class="row">
+	<div class="col-md-4">
+		<%= form_for(:session, :html => {class: "form-horizontal", role:"form"}, url: login_path ) do |new|%>
+			
+			<div class="form-group">
+				<%= new.label :email%>
+				<%= new.email_field :email ,class: "form-control" ,placeholder: "Enter Email", autofocus: true %>
+			</div>
+
+			<div class="form-group">
+				<%= new.label :password%>
+				<%= new.password_field :password ,class: "form-control" ,placeholder: "Enter Password", autofocus: true %>
+			</div>
+
+
+			<div class="form-group">
+				<%= new.submit "Log in", class: "btn btn-primary btn-xlarge"%>
+			</div>
+
+		<% end %>
+
+		<%= link_to "Don't have an account, Sign up", signup_path, style:"margin: -15px;" %>
+
+	</div>
+</div>
+<hr/>

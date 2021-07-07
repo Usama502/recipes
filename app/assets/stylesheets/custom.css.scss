@@ -64,3 +64,51 @@ footer {
 .colormatch{
 	color: #fac21b;
 }
+
+.listing{
+	list-style: none;
+	padding-left: 0px;
+}
+
+.title-name{
+	color: #fac21b;
+	font-size: 1.25em;
+	font-weight: bold;
+}
+
+
+
+
+.topnav {
+  background-color: #fac21b;
+  overflow: hidden;
+  display: flex;
+  a {
+	  
+	  display: block;
+	  color: #fff;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  font-size: 17px;
+	}
+}
+
+/* Style the links inside the navigation bar */
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #fac21b;
+  color: black;
+}
+
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+
+
+
+
