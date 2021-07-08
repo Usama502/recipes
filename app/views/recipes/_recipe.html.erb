@@ -8,7 +8,10 @@
 	<div class="well  col-md-8">
 		<h4><%= link_to recipe.name , recipe_path(recipe) %></h4>
 		<p><%= recipe.description %></p>
-		<small>created by <b><%=  recipe.chef.name %></b> <%= time_ago_in_words(recipe.created_at) %> ago</small>
+		<% if recipe.ingredients.any? %>
+			<p>Ingredients: <%= render recipe.ingredients%></p>
+		<% end %>
+		<small>created by <b><%=  recipe.chef.name %></b> <%= time_ago_in_words(recipe.created_at) %> ago | <%= pluralize(recipe.comments.count, "Comment")%></small>
 	
 		<div class="col-md-6">
 			<% if logged_in? && (recipe.chef==current_chef || current_chef.admin? )%>

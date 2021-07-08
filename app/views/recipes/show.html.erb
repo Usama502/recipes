@@ -5,10 +5,12 @@
 		<h3> Description </h3>
 		<hr/>
 		<p style="font-size: 18px"><%= simple_format(@recipe.description.capitalize) %></p>
-
+		<% if @recipe.ingredients.any? %>
+			<p>Ingredients: <%= render @recipe.ingredients %></p>
+		<% end %>
 		<small style="font-size:10px">Created by <%= @recipe.chef.name %></small>
 		<div class="pull-right">
-			<%= link_to gravatar_for(@recipe.chef), recipe_path %>
+			<%= link_to gravatar_for(@recipe.chef), chef_path(@recipe.chef) %>
 			<small style="font-size:10px"><%= time_ago_in_words(@recipe.created_at)%>  ago</small>
 		</div>
 	</div>
@@ -23,7 +25,35 @@
 		<%= link_to "Go Back", recipes_path,class:"btn btn-primary"%>
 	</div>
 </div>
-</div>
 <hr/>
-<br>
-<br>
+<% if logged_in? %>
+	<div class="row">
+		<div class="col-md-6">
+			<%= form_for([@recipe,@comment], :html => {class: "form-horizontal", role:"form"}) do |new|%>
+				<div class="form-group">
+					<%= new.label :description, "Post a Comment" %>
+					<%= new.text_area :description ,rows: 4 ,class: "form-control" ,placeholder: "Enter comment here", autofocus: true %>
+				</div>
+				<div class="form-group">
+					<%= new.submit "Comment" ,class: "btn btn-primary btn-xlarge"%>
+				</div>
+			<% end %>
+		</div>
+	</div>
+<% end %>
+</hr>
+<%if @recipe.comments.count != 0 %>
+	<div class="row">
+		<div class="col-md-8">
+			<h3>Comments: </h3>
+			<%= render partial: 'comments/comments', object: @comments %>
+		</div>
+	</div>
+<%else%>
+	<div class="row">
+		<div class="col-md-8">
+			<h3> No Comments yet! </h3>
+		</div>
+	</div>
+<%end%>
+</div>

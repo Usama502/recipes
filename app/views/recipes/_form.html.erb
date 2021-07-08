@@ -6,13 +6,22 @@
 			<div class="form-group">
 				<%= new.label :name%>
 				<%= new.text_field :name , class: "form-control" ,placeholder: "Enter name of Recipe", autofocus: true %>
-
 			</div>
 			<div class="form-group">
 				<%= new.label :description%>
 				<%= new.text_area :description ,rows: 10 ,class: "form-control" ,placeholder: "Enter Steps to create Recipe", autofocus: true %>
-
 			</div>
+
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-12">
+						<%= new.collection_check_boxes :ingredient_ids, Ingredient.all, :id,:name do |cb| %>
+							<% cb.label(class: "checkbox-inline input_checkbox") { cb.check_box(class: "check_box") + cb.text} %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+
 			<div class="form-group">
 				<%= new.submit class: "btn btn-primary btn-xlarge"%>
 			</div>
